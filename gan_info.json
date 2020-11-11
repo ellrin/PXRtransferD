@@ -1,0 +1,12 @@
+{"initial_dir_path": "enter a new folder path for saving GAN's weights",
+ "train_dir_path": "enter a training image folder path",
+ "batch_size": 64, 
+ "lrD": 1e-4, 
+ "lrG": 1e-4, 
+ "gpu_number": 1, 
+ "image_size": 64, 
+ "image_channel": 1,
+ "latent_code_number": 100,
+ "lambda_number": 10,
+ "Diters": 5,
+ "epochs": 5000}
