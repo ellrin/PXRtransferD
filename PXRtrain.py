@@ -10,7 +10,7 @@ from keras.callbacks import ModelCheckpoint, CSVLogger
 from utils.preprocessing import loadImg4Classification
 from utils.model import PXRCmodel
 
-with open('classification_info.json') as info:
+with open('./information/classification_info.json') as info:
     train_info = json.load(info)
     
     

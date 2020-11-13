@@ -16,7 +16,7 @@ from utils.preprocessing import load_img_train, showX
 
 
 # initial settings
-with open('gan_info.json') as info:
+with open('./information/gan_info.json') as info:
     train_info = json.load(info)
 
 
