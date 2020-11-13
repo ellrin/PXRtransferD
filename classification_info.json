@@ -1,0 +1,13 @@
+{"train_dir": "enter training dataset path (with 2 subfolder belongs to 2 classes)",
+ "valid_dir": "enter validation dataset path (with 2 subfolder belongs to 2 classes)",
+ "test_dir":  "enter testing dataset path (with 2 subfolder belongs to 2 classes)",
+ "transfer_weight_path": "enter the discriminator weight path",
+ "checkpoint_path": "./",
+ "parameter_save_path": "./",
+ "csv_logger_path": "./",
+ "batch_size": 8, 
+ "adamLr": 5e-5, 
+ "gpu_number": 1, 
+ "image_size": 512, 
+ "image_channel": 1,
+ "epochs": 140}

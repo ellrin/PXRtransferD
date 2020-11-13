@@ -2,8 +2,6 @@ from keras.preprocessing.image import ImageDataGenerator
 import numpy as np
 
 
-
-
 def load_img_train(batch, train_dir, imgSize):
         
     train_datagen = ImageDataGenerator()
@@ -27,3 +25,60 @@ def showX(X, image_size, rows=1):
     int_X = int_X.reshape(rows, -1, image_size, image_size, 1).swapaxes(1,2).reshape(rows*image_size,-1, 1)
 
     return int_X
+
+
+
+
+class loadImg4Classification:
+        
+    def train(isize, batch, train_dir, 
+              rescale=1./255, rotation_range=20, width_shift_range=0.2, 
+              height_shift_range=0.2, horizontal_flip=True):
+        
+        train_datagen = ImageDataGenerator(
+            rescale=rescale,
+            rotation_range=rotation_range,
+            width_shift_range=width_shift_range,
+            height_shift_range=height_shift_range,
+            horizontal_flip=horizontal_flip,
+            fill_mode='nearest')
+        
+        train = train_datagen.flow_from_directory(
+            train_dir,
+            target_size=(isize, isize),
+            color_mode='grayscale',
+            batch_size=batch,
+            class_mode='categorical',
+            shuffle=True)
+        
+        return train
+        
+        
+        
+    def valid(isize, batch, valid_dir, rescale=1./255):
+        
+        validation_datagen = ImageDataGenerator(rescale=rescale)
+        validation_generator = validation_datagen.flow_from_directory(
+            valid_dir,
+            target_size=(isize, isize),
+            color_mode='grayscale',
+            batch_size=batch,
+            class_mode='categorical',
+            shuffle=True)
+        
+        return validation_generator
+        
+        
+        
+    def test(isize, batch, test_dir):
+        
+        test_datagen = ImageDataGenerator(rescale=1./255)
+        test_generator = test_datagen.flow_from_directory(
+            test_dir,
+            target_size=(isize, isize),
+            color_mode='grayscale',
+            batch_size=batch,
+            class_mode='categorical',
+            shuffle=False)
+        
+        return test_generator
