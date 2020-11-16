@@ -1,5 +1,7 @@
-from keras.preprocessing.image import ImageDataGenerator
+import os
 import numpy as np
+from keras.preprocessing.image import ImageDataGenerator
+
 
 
 def load_img_train(batch, train_dir, imgSize):
@@ -82,3 +84,27 @@ class loadImg4Classification:
             shuffle=False)
         
         return test_generator
+    
+
+    
+    
+def prepareTestingData(testImgPath, imgSize):
+    
+    imgNumber = 0
+    for imgClass in os.listdir(testImgPath):
+        imgNumber += (len(os.listdir(testImgPath+imgClass)))
+        
+    test_batches = ImageDataGenerator().flow_from_directory(testImgPath,
+                                                            target_size=(imgSize, imgSize), 
+                                                            batch_size=imgNumber,
+                                                            class_mode = 'categorical',
+                                                            color_mode='grayscale',
+                                                            shuffle=False)
+
+
+    positive_image_number = len(test_batches.classes[test_batches.classes==0])
+    negative_image_number = len(test_batches.classes[test_batches.classes==1])
+    print('loading images...')
+    imgs, labels = next(test_batches)
+    
+    return imgs, labels, positive_image_number, negative_image_number

@@ -1,0 +1,7 @@
+{"PXRmodel_path": "enter the saved model path",
+ "testImgPath": "enter the testing inage path", 
+ "gpu_number": 1, 
+ "imgSize": 512, 
+ "youden_index": 0.5,
+ "testBatchSize": 16,
+ "intermediate_layername": "enter the flatten layer name (mine: global_average_pooling2d)"}
