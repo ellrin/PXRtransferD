@@ -1,0 +1,6 @@
+{"model_path": "ENTER YOUR MODEL PATH",
+ "test_dir": "ENTER YOUR TEST FOLDER", 
+ "gpu_number": 1, 
+ "imgSize": 512,
+ "imageSavePath": "./",
+ "intermediate_layername": "conv2d_13"}
